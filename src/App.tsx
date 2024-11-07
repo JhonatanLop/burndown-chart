@@ -3,6 +3,9 @@ import React, { useEffect, useState } from 'react';
 import { Issue } from './components/Interfaces';
 import { getIssues } from './services/getIssues';
 import BurndownChart from './components/BurndownChart';
+import { PointsCalculator } from './services/PointsCalculator';
+
+
 
 const App: React.FC = () => {
     const [issues, setIssues] = useState<Issue[]>([]);
@@ -27,23 +30,26 @@ const App: React.FC = () => {
         loadIssues();
     }, []);
 
+    const points = PointsCalculator(issues, xlabel);
 
     return (
         <div>
             <h1>Issues do Repositório</h1>
             <div className='chart'>
-                {/* <BurndownChart
-                labels={xlabel}
-                data={optimalDistribution} 
-            /> */}
+                <BurndownChart
+                    labels={xlabel}
+                    distribution={optimalDistribution}
+                    points={points}
+                />
                 {/* mostrando as issues */}
-                <ul>
+                {/* <ul>
                     {issues.map((issue) => (
                         <li key={issue.id}>
                             {issue.title}
+                            {issue.closed_at}
                         </li>
                     ))}
-                </ul>
+                </ul> */}
             </div>
         </div>
     );
