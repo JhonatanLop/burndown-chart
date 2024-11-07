@@ -4,7 +4,7 @@ import { Issue } from "../components/Interfaces";
 
 const token = process.env.GITHUB_TOKEN;
 
-export const fetchIssues = async (): Promise<Issue[]> => {
+export const fetchIssues = async (gitRepo:string, gitOwner:string): Promise<Issue[]> => {
     if (!token) {
         console.error('GITHUB_TOKEN is not set');
         return [];
@@ -13,10 +13,9 @@ export const fetchIssues = async (): Promise<Issue[]> => {
     try {
         const octokit = new Octokit({ auth: token });
         const response = await octokit.request('GET /repos/{owner}/{repo}/issues', {
-            owner: 'projetoKhali',
-            repo: 'api5back',
+            owner: gitOwner,
+            repo: gitRepo,
             state: 'all',
-
             headers: {
                 'X-GitHub-Api-Version': '2022-11-28'
             }

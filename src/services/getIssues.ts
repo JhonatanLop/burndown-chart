@@ -45,10 +45,12 @@ function dividIssuesBySprint(issues:Issue[]) {
 
 export const getIssues = async (): Promise<Issue[]> => {
     // pega as issues da resposta
-    const response = await fetchIssues();
+    const backend = await fetchIssues('api5back','projetoKhali');
+    const frontend = await fetchIssues('api5front','projetoKhali');
 
-    const issues = findAllIssues(response);
-    const issuesBySprint = dividIssuesBySprint(issues);
+    const issuesBack = findAllIssues(backend);
+    const issuesFront = findAllIssues(frontend);
+    const issuesBySprint = dividIssuesBySprint(issuesBack.concat(issuesFront));
     
     return issuesBySprint;
 };
