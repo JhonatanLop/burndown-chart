@@ -44,7 +44,7 @@ const ChartComponent: React.FC<ChartComponentProps> = ({ labels, distribution, p
           borderWidth: 1,
         },
         {
-          label: 'Points Burned',
+          label: 'Points Left',
           data: points,
           backgroundColor: [
             'rgba(255, 26, 104, 0.2)',

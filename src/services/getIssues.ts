@@ -32,10 +32,6 @@ function dividIssuesBySprint(issues:Issue[]) {
 
         if (milestone === null) {
             continue;
-        // } else if (milestone.number === 3) {
-        //     sprint1.push(obj);
-        // } else if (milestone.number === 4) {
-        //     sprint2.push(obj);
         } else if (milestone.number === 1) {
             sprint3.push(obj);
         }
@@ -44,7 +40,6 @@ function dividIssuesBySprint(issues:Issue[]) {
 }
 
 export const getIssues = async (): Promise<Issue[]> => {
-    // pega as issues da resposta
     const backend = await fetchIssues('api5back','projetoKhali');
     const frontend = await fetchIssues('api5front','projetoKhali');
 

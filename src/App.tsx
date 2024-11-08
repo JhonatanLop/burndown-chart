@@ -1,17 +1,15 @@
 // src/App.tsx
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Issue } from './components/Interfaces';
 import { getIssues } from './services/getIssues';
 import BurndownChart from './components/BurndownChart';
 import { PointsCalculator } from './services/PointsCalculator';
 
-
-
 const App: React.FC = () => {
     const [issues, setIssues] = useState<Issue[]>([]);
     const [optimalDistribution, setOptimalDistribution] = useState<number[]>([]);
 
-    const xlabel = ["21", "23", "25", "27", "29", "31", "2", "4", "6", "8", "10"];
+    const xlabel = ["21", "22", "23", "24,", "25", "26", "27", "28", "29", "30", "31", "01", "02", "03", "04", "05", "06", "7", "8", "9", "10"];
     useEffect(() => {
         const loadIssues = async () => {
             const issuesData = await getIssues();
@@ -28,8 +26,9 @@ const App: React.FC = () => {
         };
 
         loadIssues();
-    }, []);
+    }, [xlabel.length]);
 
+    console.log(issues);
     const points = PointsCalculator(issues, xlabel);
 
     return (

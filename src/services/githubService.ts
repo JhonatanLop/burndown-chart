@@ -2,7 +2,7 @@
 import { Octokit } from "@octokit/core";
 import { Issue } from "../components/Interfaces";
 
-const token = process.env.GITHUB_TOKEN;
+const token = process.env.REACT_APP_GITHUB_TOKEN;
 
 export const fetchIssues = async (gitRepo:string, gitOwner:string): Promise<Issue[]> => {
     if (!token) {
@@ -11,7 +11,7 @@ export const fetchIssues = async (gitRepo:string, gitOwner:string): Promise<Issu
     }
 
     try {
-        const octokit = new Octokit({ auth: token });
+        const octokit = new Octokit({ auth: process.env.REACT_APP_GITHUB_TOKEN });
         const response = await octokit.request('GET /repos/{owner}/{repo}/issues', {
             owner: gitOwner,
             repo: gitRepo,
@@ -20,9 +20,6 @@ export const fetchIssues = async (gitRepo:string, gitOwner:string): Promise<Issu
                 'X-GitHub-Api-Version': '2022-11-28'
             }
         });
-
-        console.log('Response status:', response.status);
-        console.log('Response data:', response.data);
 
         return response.data as Issue[];
     } catch (error) {
