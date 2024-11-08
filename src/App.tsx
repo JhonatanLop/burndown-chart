@@ -9,7 +9,7 @@ const App: React.FC = () => {
     const [issues, setIssues] = useState<Issue[]>([]);
     const [optimalDistribution, setOptimalDistribution] = useState<number[]>([]);
 
-    const xlabel = ["21", "22", "23", "24,", "25", "26", "27", "28", "29", "30", "31", "01", "02", "03", "04", "05", "06", "7", "8", "9", "10"];
+    const xlabel = ["21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "01", "02", "03", "04", "05", "06", "7", "8", "9", "10"];
     useEffect(() => {
         const loadIssues = async () => {
             const issuesData = await getIssues();
