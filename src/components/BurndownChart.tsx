@@ -1,13 +1,19 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { Chart, ChartData, ChartOptions } from 'chart.js/auto';
 
 interface ChartComponentProps {
   labels: string[];
   distribution: number[];
   points: number[];
+  overrideChartOptions?: ChartOptions;
 }
 
-const ChartComponent: React.FC<ChartComponentProps> = ({ labels, distribution, points }) => {
+const ChartComponent = ({
+  labels,
+  distribution,
+  points,
+  overrideChartOptions,
+}: ChartComponentProps) => {
   const chartRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
@@ -75,6 +81,7 @@ const ChartComponent: React.FC<ChartComponentProps> = ({ labels, distribution, p
           beginAtZero: true,
         },
       },
+      ...overrideChartOptions,
     };
 
     const chartInstance = new Chart(ctx, {
@@ -84,7 +91,7 @@ const ChartComponent: React.FC<ChartComponentProps> = ({ labels, distribution, p
     });
 
     return () => chartInstance.destroy();
-  }, [labels, distribution, points]);
+  }, [labels, distribution, points, overrideChartOptions ]);
 
   return <canvas ref={chartRef} />;
 };
