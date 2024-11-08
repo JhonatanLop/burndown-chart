@@ -16,6 +16,7 @@ export const fetchIssues = async (gitRepo:string, gitOwner:string): Promise<Issu
             owner: gitOwner,
             repo: gitRepo,
             state: 'all',
+            per_page: 100,
             headers: {
                 'X-GitHub-Api-Version': '2022-11-28'
             }
