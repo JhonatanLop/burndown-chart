@@ -6,6 +6,7 @@ interface ChartComponentProps {
   distribution: number[];
   points: number[];
   overrideChartOptions?: ChartOptions;
+  onRender?: (chart: Chart) => void;
 }
 
 const ChartComponent = ({
@@ -13,6 +14,7 @@ const ChartComponent = ({
   distribution,
   points,
   overrideChartOptions,
+  onRender,
 }: ChartComponentProps) => {
   const chartRef = useRef<HTMLCanvasElement | null>(null);
 
@@ -90,8 +92,12 @@ const ChartComponent = ({
       options: chartOptions,
     });
 
+    if (onRender) {
+      onRender(chartInstance);
+    }
+
     return () => chartInstance.destroy();
-  }, [labels, distribution, points, overrideChartOptions ]);
+  }, [labels, distribution, points, overrideChartOptions, onRender]);
 
   return <canvas ref={chartRef} />;
 };
