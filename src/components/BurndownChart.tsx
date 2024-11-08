@@ -1,4 +1,3 @@
-// src/components/ChartComponent.tsx
 import React, { useEffect, useRef } from 'react';
 import { Chart, ChartData, ChartOptions } from 'chart.js/auto';
 
