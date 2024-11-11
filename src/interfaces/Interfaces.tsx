@@ -4,7 +4,7 @@ export interface Issue {
     state: string;
     created_at: string;
     closed_at: string;
-    url: string;
+    html_url: string;
     milestone: null;
 }
 
