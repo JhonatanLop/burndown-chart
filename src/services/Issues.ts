@@ -1,5 +1,5 @@
 import { Issue, Milestone } from "../interfaces/Interfaces";
-import { fetchIssues } from "./GithubIssuesFetcher";
+import { fetchIssues } from "./IssuesFetcher";
 
 function findAllIssues(response: Issue[]) {
     if (!response) {
