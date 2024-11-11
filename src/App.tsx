@@ -1,7 +1,7 @@
 // src/App.tsx
 import { useEffect, useState } from 'react';
 import { Issue } from './interfaces/Interfaces';
-import { getIssues } from './services/getIssues';
+import { getIssues } from './services/MiningIssues';
 import { getDistributionPoints } from './services/PointsCalculator';
 import Chart from './pages/Chart';
 

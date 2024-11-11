@@ -1,4 +1,3 @@
-// import octokit from '@octokit/core';
 import { Octokit } from "@octokit/core";
 import { Issue } from "../interfaces/Interfaces";
 
