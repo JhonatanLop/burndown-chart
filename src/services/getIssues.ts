@@ -1,4 +1,4 @@
-import { Issue, Milestone } from "../components/Interfaces";
+import { Issue, Milestone } from "../interfaces/Interfaces";
 import { fetchIssues } from "./githubService";
 
 function findAllIssues(response: Issue[]) {

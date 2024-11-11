@@ -1,6 +1,6 @@
 // src/App.tsx
 import { useEffect, useState } from 'react';
-import { Issue } from './components/Interfaces';
+import { Issue } from './interfaces/Interfaces';
 import { getIssues } from './services/getIssues';
 import BurndownChart from './components/BurndownChart';
 import { PointsCalculator } from './services/PointsCalculator';

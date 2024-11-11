@@ -1,4 +1,4 @@
-import { Issue } from "../components/Interfaces";
+import { Issue } from "../interfaces/Interfaces";
 
 function pointsBurnedInTheDay(issues: Issue[], day: string, pointsAlreadyBurned: number): number {
     let points = pointsAlreadyBurned;
