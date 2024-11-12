@@ -1,6 +1,5 @@
-// import octokit from '@octokit/core';
 import { Octokit } from "@octokit/core";
-import { Issue } from "../components/Interfaces";
+import { Issue } from "../interfaces/Interfaces";
 
 const token = process.env.REACT_APP_GITHUB_TOKEN;
 

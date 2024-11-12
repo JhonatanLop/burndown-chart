@@ -1,20 +1,22 @@
-import { Issue, Milestone } from "../components/Interfaces";
-import { fetchIssues } from "./githubService";
+import { Issue, Milestone } from "../interfaces/Interfaces";
+import { fetchIssues } from "./IssuesFetcher";
 
 function findAllIssues(response: Issue[]) {
-    // se a resposta for vazia, retorna um array vazio
     if (!response) {
         return [];
     }
 
     let issues: Issue[] = [];
-    // verifica se o título da issue tem ":". Se tiver não adiciona no array
+    // Com nosso padrão de commit, não teremos issues com título contendo ":", apenas pull requests
     for (let i = 0; i < response.length; i++) {
         const obj = response[i];
         if (obj.title.includes(":")) {
             continue;
         }
         issues.push(obj);
+        if (obj.milestone != null) {
+            console.log(obj);
+        }
     }
     return issues;
 }
