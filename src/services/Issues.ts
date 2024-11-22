@@ -34,7 +34,7 @@ function dividIssuesBySprint(issues:Issue[]) {
 
         if (milestone === null) {
             continue;
-        } else if (milestone.number === 1) {
+        } else if (milestone.number === 2) {
             sprint3.push(obj);
         }
     }
