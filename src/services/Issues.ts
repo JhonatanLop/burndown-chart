@@ -14,9 +14,6 @@ function findAllIssues(response: Issue[]) {
             continue;
         }
         issues.push(obj);
-        if (obj.milestone != null) {
-            console.log(obj);
-        }
     }
     return issues;
 }
